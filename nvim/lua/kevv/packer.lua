@@ -4,6 +4,10 @@ print('packer sss')
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
+  -- null ls
+  use 'jose-elias-alvarez/null-ls.nvim'
+  -- lua inspect
+  use 'kikito/inspect.lua'
 	-- Packer can manage itself
 	use 'wbthomason/packer.nvim'
 	
@@ -61,4 +65,21 @@ return require('packer').startup(function(use)
 	}
 	-- Autoformat
 	use 'lukas-reineke/lsp-format.nvim'
+
+  -- Tabnine
+  use { 'codota/tabnine-nvim', run = './dl_binaries.sh' }
+  -- Lualine
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
+  -- Crates for rust
+  use {
+    'saecki/crates.nvim',
+    tag = 'v0.3.0',
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function()
+        require('crates').setup()
+    end,
+  }
 end)

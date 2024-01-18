@@ -1,4 +1,5 @@
 -- general config
+vim.g.filetype_v = "v"
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.scrolloff = 4
@@ -39,6 +40,13 @@ end
 vim.opt.rtp:prepend(lazypath)
 --  Load plugins
 require("lazy").setup("plugins")
+
+vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'}, {
+  pattern = {"*.v"},
+  callback = function(ev)
+    vim.cmd([[set filetype=v]])
+  end,
+})
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)

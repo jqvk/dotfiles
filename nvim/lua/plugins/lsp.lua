@@ -14,6 +14,8 @@ return {
       lsp.pyright.setup{}
       lsp.postgres_lsp.setup{}
       lsp.tailwindcss.setup{}
+      lsp.bufls.setup{}
+      lsp.vls.setup{}
     end,
   },
 }

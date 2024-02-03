@@ -15,7 +15,7 @@ return {
         width = 0.95,
         -- preview = { delay = 50 },
       },
-      files = { cmd = 'fdfind --type file' },
+      files = { cmd = 'fd --type file' },
       grep = {
         rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=512 -g '!*lock*'",
       }
